@@ -1,0 +1,39 @@
+{
+ "raw": {
+  "rows": 101766,
+  "patients": 71518,
+  "readmitted_lt30": 11357,
+  "md5": "502f0cc004e4cf71536ec2e61596e42f"
+ },
+ "excluded_expired_or_hospice": 2423,
+ "eligible_encounters": 99343,
+ "split": [
+  {
+   "split": "train",
+   "encounters": 69542,
+   "patients": 49003,
+   "readmit_rate": 0.11388801012337868
+  },
+  {
+   "split": "val",
+   "encounters": 14901,
+   "patients": 10513,
+   "readmit_rate": 0.11388497416280786
+  },
+  {
+   "split": "test",
+   "encounters": 14900,
+   "patients": 10474,
+   "readmit_rate": 0.11389261744966443
+  }
+ ],
+ "missing_share": {
+  "race": 0.0223,
+  "weight": 0.9686,
+  "payer_code": 0.3956,
+  "medical_specialty": 0.4908,
+  "diag_1": 0.0002,
+  "diag_2": 0.0035,
+  "diag_3": 0.014
+ }
+}

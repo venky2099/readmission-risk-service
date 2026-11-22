@@ -1,0 +1,201 @@
+{
+ "test_rows": 14900,
+ "test_patients": 10474,
+ "test_readmit_rate": 0.11389261744966443,
+ "table": {
+  "B1 rule: prior inpatient stays": {
+   "pr_auc": 0.17825174346155379,
+   "roc_auc": 0.6102637072314103,
+   "flagged_share": 0.14328859060402685,
+   "recall": 0.27931644077784323,
+   "precision": 0.22201405152224823,
+   "lift": 1.9493278536720675,
+   "f1_macro": 0.5681653153970134,
+   "threshold": 2.0
+  },
+  "B2 logistic regression": {
+   "pr_auc": 0.217194387632298,
+   "roc_auc": 0.6693956851916345,
+   "flagged_share": 0.19328859060402684,
+   "recall": 0.36829699469652327,
+   "precision": 0.2170138888888889,
+   "lift": 1.9054254239507629,
+   "f1_macro": 0.5706006161114521,
+   "threshold": 0.5722463502534441
+  },
+  "M1 gradient boosting, unweighted (ablation)": {
+   "pr_auc": 0.22850224771537367,
+   "roc_auc": 0.6730326954227426,
+   "flagged_share": 0.1940268456375839,
+   "recall": 0.37360047142015324,
+   "precision": 0.2193012798339675,
+   "lift": 1.9255091747354836,
+   "f1_macro": 0.5723449109701432,
+   "threshold": 0.15279942160490034
+  },
+  "M2 gradient boosting, class-weighted (selected)": {
+   "pr_auc": 0.23105277687525896,
+   "roc_auc": 0.6744141424974797,
+   "flagged_share": 0.19375838926174496,
+   "recall": 0.38067177371832644,
+   "precision": 0.22376169033598892,
+   "lift": 1.9646724726023777,
+   "f1_macro": 0.5756489411415562,
+   "threshold": 0.57225106574257
+  },
+  "B0 prior (dummy)": {
+   "pr_auc": 0.11389261744966443,
+   "roc_auc": 0.5,
+   "note": "cannot rank"
+  }
+ },
+ "selected_ci95": {
+  "pr_auc": [
+   0.20720511663967456,
+   0.25410289598473584
+  ],
+  "roc_auc": [
+   0.6583706627299235,
+   0.6897797977591494
+  ],
+  "recall": [
+   0.35072772396815904,
+   0.4115968288750155
+  ],
+  "precision": [
+   0.20596967555190634,
+   0.24235592517958818
+  ],
+  "lift": [
+   1.8473583780006997,
+   2.0886343862638994
+  ]
+ },
+ "brier": {
+  "M2 class-weighted": 0.21300372527448755,
+  "M1 unweighted": 0.09597772972484414
+ },
+ "subgroups": [
+  {
+   "group": "age_band: under 50",
+   "encounters": 2356,
+   "readmit_rate": 0.11587436332767402,
+   "flagged_share": 0.19227504244482174,
+   "recall": 0.47619047619047616
+  },
+  {
+   "group": "age_band: 50 to 69",
+   "encounters": 5896,
+   "readmit_rate": 0.1116010854816825,
+   "flagged_share": 0.16434871099050202,
+   "recall": 0.3586626139817629
+  },
+  {
+   "group": "age_band: 70 to 79",
+   "encounters": 3714,
+   "readmit_rate": 0.1098546042003231,
+   "flagged_share": 0.20732364028002154,
+   "recall": 0.36519607843137253
+  },
+  {
+   "group": "age_band: 80 and over",
+   "encounters": 2934,
+   "readmit_rate": 0.12201772324471712,
+   "flagged_share": 0.23687798227675527,
+   "recall": 0.3659217877094972
+  },
+  {
+   "group": "gender: Female",
+   "encounters": 8090,
+   "readmit_rate": 0.11334981458590852,
+   "flagged_share": 0.20296662546353522,
+   "recall": 0.3904034896401309
+  },
+  {
+   "group": "gender: Male",
+   "encounters": 6810,
+   "readmit_rate": 0.1145374449339207,
+   "flagged_share": 0.1828193832599119,
+   "recall": 0.36923076923076925
+  }
+ ],
+ "importance_validation": [
+  {
+   "input": "number_inpatient",
+   "pr_auc_drop": 0.07140447934112307
+  },
+  {
+   "input": "discharge_disposition_id",
+   "pr_auc_drop": 0.04182636212732819
+  },
+  {
+   "input": "diag_1",
+   "pr_auc_drop": 0.00890830723617291
+  },
+  {
+   "input": "medical_specialty",
+   "pr_auc_drop": 0.0072414623418859585
+  },
+  {
+   "input": "diag_2",
+   "pr_auc_drop": 0.003988676328842237
+  },
+  {
+   "input": "admission_source_id",
+   "pr_auc_drop": 0.003063536602006913
+  },
+  {
+   "input": "admission_type_id",
+   "pr_auc_drop": 0.002708535484190505
+  },
+  {
+   "input": "time_in_hospital",
+   "pr_auc_drop": 0.0026143276785512057
+  },
+  {
+   "input": "num_medications",
+   "pr_auc_drop": 0.002564590412045061
+  },
+  {
+   "input": "number_diagnoses",
+   "pr_auc_drop": 0.0023360339380777326
+  },
+  {
+   "input": "age",
+   "pr_auc_drop": 0.002140659550134825
+  },
+  {
+   "input": "insulin",
+   "pr_auc_drop": 0.002077798904308222
+  },
+  {
+   "input": "race",
+   "pr_auc_drop": 0.0020549299172693825
+  },
+  {
+   "input": "number_emergency",
+   "pr_auc_drop": 0.0018702051098114052
+  },
+  {
+   "input": "A1Cresult",
+   "pr_auc_drop": 0.001329572410948443
+  },
+  {
+   "input": "diag_3",
+   "pr_auc_drop": 0.000788615273447979
+  },
+  {
+   "input": "gender",
+   "pr_auc_drop": 0.000517781428853827
+  },
+  {
+   "input": "num_lab_procedures",
+   "pr_auc_drop": -0.00027715244394765914
+  },
+  {
+   "input": "number_outpatient",
+   "pr_auc_drop": -0.0012600473901501947
+  }
+ ],
+ "flagged_share_on_test": 0.19375838926174496
+}

@@ -1,0 +1,111 @@
+{
+ "rules": {
+  "psi_watch": 0.1,
+  "psi_alert": 0.25,
+  "flagged_share_band": [
+   0.15,
+   0.25
+  ]
+ },
+ "batches": [
+  {
+   "batch": "test month (no shift expected)",
+   "encounters": 14900,
+   "score_psi": 0.0010985615314725735,
+   "flagged_share": 0.19375838926174496,
+   "n_alert": 0,
+   "n_watch": 0,
+   "top_features": [
+    {
+     "feature": "medical_specialty",
+     "psi": 0.0044,
+     "ks_p": NaN,
+     "status": "stable"
+    },
+    {
+     "feature": "admission_source_id",
+     "psi": 0.0017,
+     "ks_p": NaN,
+     "status": "stable"
+    },
+    {
+     "feature": "discharge_disposition_id",
+     "psi": 0.0016,
+     "ks_p": NaN,
+     "status": "stable"
+    },
+    {
+     "feature": "race",
+     "psi": 0.0014,
+     "ks_p": NaN,
+     "status": "stable"
+    },
+    {
+     "feature": "max_glu_serum",
+     "psi": 0.0011,
+     "ks_p": NaN,
+     "status": "stable"
+    },
+    {
+     "feature": "glimepiride",
+     "psi": 0.0011,
+     "ks_p": NaN,
+     "status": "stable"
+    }
+   ],
+   "alerts": [],
+   "decision": "no action"
+  },
+  {
+   "batch": "new partner hospital (simulated shift)",
+   "encounters": 5000,
+   "score_psi": 0.06842670722302989,
+   "flagged_share": 0.2382,
+   "n_alert": 2,
+   "n_watch": 1,
+   "top_features": [
+    {
+     "feature": "age_mid",
+     "psi": 0.445,
+     "ks_p": 0.0,
+     "status": "alert"
+    },
+    {
+     "feature": "admission_source_id",
+     "psi": 0.3901,
+     "ks_p": NaN,
+     "status": "alert"
+    },
+    {
+     "feature": "admission_type_id",
+     "psi": 0.2162,
+     "ks_p": NaN,
+     "status": "watch"
+    },
+    {
+     "feature": "medical_specialty",
+     "psi": 0.0871,
+     "ks_p": NaN,
+     "status": "stable"
+    },
+    {
+     "feature": "num_lab_procedures",
+     "psi": 0.0394,
+     "ks_p": 0.0,
+     "status": "stable"
+    },
+    {
+     "feature": "discharge_disposition_id",
+     "psi": 0.0373,
+     "ks_p": NaN,
+     "status": "stable"
+    }
+   ],
+   "alerts": [
+    "feature drift: age_mid (PSI 0.45)",
+    "feature drift: admission_source_id (PSI 0.39)"
+   ],
+   "decision": "investigate and consider retraining"
+  }
+ ]
+}

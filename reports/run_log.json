@@ -1,0 +1,60 @@
+{
+ "started": "2026-11-22 13:20:01",
+ "python": "3.11.9",
+ "platform": "Windows-10-10.0.26300-SP0",
+ "packages": {
+  "numpy": "2.4.4",
+  "pandas": "3.0.3",
+  "scikit-learn": "1.9.0",
+  "scipy": "1.17.1",
+  "joblib": "1.6.0",
+  "fastapi": "0.163.1",
+  "pydantic": "2.13.5",
+  "uvicorn": "0.54.0",
+  "httpx": "0.28.1",
+  "matplotlib": "3.11.1",
+  "pytest": "9.1.1"
+ },
+ "steps": [
+  {
+   "step": "fetch data",
+   "seconds": 3.4,
+   "return_code": 0
+  },
+  {
+   "step": "clean and split",
+   "seconds": 73.7,
+   "return_code": 0
+  },
+  {
+   "step": "train and tune (train + validation only)",
+   "seconds": 123.9,
+   "return_code": 0
+  },
+  {
+   "step": "single test evaluation",
+   "seconds": 42.5,
+   "return_code": 0
+  },
+  {
+   "step": "drift monitoring",
+   "seconds": 3.7,
+   "return_code": 0
+  },
+  {
+   "step": "robustness checks",
+   "seconds": 4.2,
+   "return_code": 0
+  },
+  {
+   "step": "latency benchmark",
+   "seconds": 148.4,
+   "return_code": 0
+  },
+  {
+   "step": "unit tests",
+   "seconds": 7.5,
+   "return_code": 0
+  }
+ ]
+}

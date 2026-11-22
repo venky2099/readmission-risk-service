@@ -1,0 +1,12 @@
+# Pinned versions used for the reported run (Python 3.11 on Windows 11; also tested on Python 3.13, Linux).
+numpy==2.4.4
+pandas==3.0.3
+scikit-learn==1.9.0
+scipy==1.17.1
+joblib==1.6.0
+matplotlib==3.11.1
+fastapi==0.163.1
+pydantic==2.13.5
+uvicorn==0.54.0
+httpx==0.28.1
+pytest==9.1.1

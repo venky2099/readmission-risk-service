@@ -1,0 +1,158 @@
+[
+ {
+  "case": "valid encounter (test set row)",
+  "expected": "scored",
+  "status": 200,
+  "source": "model",
+  "risk_score": 0.404502,
+  "flag": false,
+  "detail": [],
+  "payload_preview": {
+   "encounter_id": 89682,
+   "gender": "Male",
+   "age": "[70-80)",
+   "admission_source_id": 7,
+   "time_in_hospital": 5,
+   "number_inpatient": 0,
+   "diag_1": "402"
+  }
+ },
+ {
+  "case": "optional fields missing (race, specialty, diagnoses)",
+  "expected": "scored",
+  "status": 200,
+  "source": "model",
+  "risk_score": 0.320163,
+  "flag": false,
+  "detail": []
+ },
+ {
+  "case": "unseen medical specialty",
+  "expected": "scored with warning",
+  "status": 200,
+  "source": "model",
+  "risk_score": 0.404502,
+  "flag": false,
+  "detail": [
+   "medical_specialty='Space-Medicine' was not seen in training; treated as an infrequent category"
+  ]
+ },
+ {
+  "case": "unseen ICD-9 code format",
+  "expected": "scored, grouped as Other",
+  "status": 200,
+  "source": "model",
+  "risk_score": 0.355504,
+  "flag": false,
+  "detail": []
+ },
+ {
+  "case": "extreme outlier: 900 lab procedures",
+  "expected": "clipped, warning",
+  "status": 200,
+  "source": "model",
+  "risk_score": 0.450384,
+  "flag": false,
+  "detail": [
+   "num_lab_procedures=900 is above the training maximum 132; clipped to 132"
+  ]
+ },
+ {
+  "case": "extreme outlier: 450 prior inpatient stays",
+  "expected": "clipped, warning",
+  "status": 200,
+  "source": "model",
+  "risk_score": 0.855726,
+  "flag": true,
+  "detail": [
+   "number_inpatient=450 is above the training maximum 21; clipped to 21"
+  ]
+ },
+ {
+  "case": "negative count",
+  "expected": "rejected 422",
+  "status": 422,
+  "source": null,
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "num_medications: Input should be greater than or equal to 0"
+  ]
+ },
+ {
+  "case": "wrong type: text in a number field",
+  "expected": "rejected 422",
+  "status": 422,
+  "source": null,
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "time_in_hospital: Input should be a valid integer, unable to parse string as an integer"
+  ]
+ },
+ {
+  "case": "value outside closed vocabulary (insulin='Lots')",
+  "expected": "rejected 422",
+  "status": 422,
+  "source": null,
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "insulin: Input should be 'No', 'Steady', 'Up' or 'Down'"
+  ]
+ },
+ {
+  "case": "required field missing (age)",
+  "expected": "rejected 422",
+  "status": 422,
+  "source": null,
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "age: Field required"
+  ]
+ },
+ {
+  "case": "unknown field name (typo)",
+  "expected": "rejected 422",
+  "status": 422,
+  "source": null,
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "num_medicatons: Extra inputs are not permitted"
+  ]
+ },
+ {
+  "case": "malformed age bracket",
+  "expected": "rejected 422",
+  "status": 422,
+  "source": null,
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "age: String should match pattern '^\\[\\d{1,3}-\\d{1,3}\\)$'"
+  ]
+ },
+ {
+  "case": "patient died at discharge (disposition 11)",
+  "expected": "not applicable",
+  "status": 200,
+  "source": "not_applicable",
+  "risk_score": null,
+  "flag": null,
+  "detail": [
+   "discharge disposition is death or hospice: no readmission follow-up applies"
+  ]
+ },
+ {
+  "case": "model raises during scoring (simulated)",
+  "expected": "fallback rule",
+  "status": 200,
+  "source": "fallback_rule",
+  "flag": false,
+  "detail": [
+   "model scoring failed (RuntimeError); fallback rule used"
+  ]
+ }
+]

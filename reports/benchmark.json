@@ -1,0 +1,64 @@
+{
+ "machine": {
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "logical_cpus": 16
+ },
+ "n_requests": 1000,
+ "http": {
+  "1 worker, 1 client (sequential)": {
+   "p50_ms": 38.00080000110029,
+   "p95_ms": 42.559269999219396,
+   "p99_ms": 45.28053299713064,
+   "mean_ms": 37.96978909994141,
+   "max_ms": 111.18359999818495,
+   "throughput_rps": 26.3353931245052,
+   "errors": 0
+  },
+  "1 worker, 8 concurrent clients": {
+   "p50_ms": 416.9110999991972,
+   "p95_ms": 545.7117999987531,
+   "p99_ms": 604.4425859986585,
+   "mean_ms": 429.33575059997384,
+   "max_ms": 830.6919999995444,
+   "throughput_rps": 18.400787723002036,
+   "errors": 0
+  },
+  "4 workers, 8 concurrent clients": {
+   "p50_ms": 144.60754999890924,
+   "p95_ms": 266.2889649973294,
+   "p99_ms": 321.1272349972569,
+   "mean_ms": 155.4841235998756,
+   "max_ms": 436.9756999985839,
+   "throughput_rps": 35.39850538235796,
+   "errors": 0
+  }
+ },
+ "model_only_single_row": {
+  "p50_ms": 37.82534999845666,
+  "p95_ms": 42.452270001740544,
+  "p99_ms": 43.194551001324726,
+  "mean_ms": 37.86345500004245,
+  "max_ms": 44.10730000017793
+ },
+ "model_only_batch": {
+  "rows": 1000,
+  "seconds": 0.07483290000163834,
+  "rows_per_second": 13363.106333953472
+ },
+ "server_side_metrics": {
+  "requests": 2050,
+  "status_counts": {
+   "200": 2050
+  },
+  "source_counts": {
+   "model": 2050
+  },
+  "error_rate": 0.0,
+  "flagged_share": 0.19951219512195123,
+  "latency_ms_p50": 41.98309999992489,
+  "latency_ms_p95": 489.39250000094034,
+  "latency_ms_p99": 564.5116939982107
+ }
+}
